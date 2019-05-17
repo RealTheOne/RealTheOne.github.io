@@ -1,23 +1,245 @@
----
-layout: default
----
+<!DOCTYPE html>
+<htm>
 
-<div class="home">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-widht, initial-scale=1.0">
+        <meta name="description" content="Pesonal Portfolio">
+        <meta name="keywords" content="HTML, CSS, portfolio">
+        <meta name="author" content="Arthur">
+        <title>Personal Portfolio</title>
+        <link rel="stylesheet" href="personalPortfolio.css">
+        <style>
+          
+          /* IMPORTED FONTS */
 
-  <h1 class="page-heading">Posts</h1>
+      @import url(https://fonts.googleapis.com/css?family-Raleway:400,500);
+      /* 'Raleway'; */
+      @import url('https://fonts.googleapis.com/css?family=Lato');
+      /* 'Lato', sans-serif; */
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      /* VARIABLES */
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+      :root {
+          --bg-main-color: hsla(180, 41%, 69%, 0.999);
+          --bg-sec-color: hsla(180, 35%, 59%, 0.999);
+          --bg-ter-color: hsla(180, 45%, 49%, 0.999);
+          --font-main-color: hsla(180, 96%, 14%, 0.999);
+          --font-sec-color: hsla(180, 99%, 85%, 0.999);
+          --border-main-color: hsla(180, 95%, 15%, 0.999);
+          --links-main-color: hsla(180, 96%, 14%, 0.999);
+          --links-sec-color: hsla(180, 99%, 75%, 0.999);
+          --links-hov-color: hsla(180, 89%, 35%, 0.999);
+      }
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+      /* GLOBAL ELEMENT STYLING */
 
-</div>
+      * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+      }
+
+      html,
+      body {
+          height: 100%;
+          font-family: "Trebuchet MS", Helvetica, sans-serif;
+          color: var(--font-main-color);
+          text-align: center;
+      }
+
+      h2,
+      P {
+          padding: 1em;
+      }
+
+      /* NAVBAR */
+
+      #navbar {
+          background-color: var(--bg-ter-color);
+          position: fixed;
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+      }
+
+      #navbar a {
+          color: var(--font-sec-color);
+      }
+
+      #navbar a:hover {
+          color: var(--font-main-color);
+      }
+
+      /* LINKS */
+
+      a {
+          margin: 0.1em;
+          padding: 1em;
+          text-decoration: none;
+          color: var(--links-sec-color);
+      }
+
+      a:hover {
+          color: var(--links-hov-color);
+          background-color: var(--bg-main-color);
+          border-radius: 0.5em;
+      }
+
+      a.contact-details:hover {
+          background-color: var(--bg-ter-color);
+          color: var(--links-sec-color);
+      }
+
+      /* MAIN */
+
+      main {
+          height: 100%;
+          color: var(--font-main-color);
+      }
+
+      section.welcome {
+          background-color: var(--bg-main-color);
+          align-items: center;
+          text-align: center;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+      }
+
+      #projects {
+          background-color: var(--bg-sec-color);
+      }
+
+      .contacts-header,
+      .work-header {
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          text-align: center;
+          height: 4em;
+      }
+
+      #contacts {
+          background-color: var(--bg-main-color);
+      }
+
+      .project-tile,
+      .contacts-tile {
+          display: inline-block;
+          width: 13em;
+          margin: 2em auto 2em;
+          overflow: hidden;
+          text-align: center;
+          align-content: center;
+      }
+
+      .project-box {
+          display: block;
+          margin: auto;
+          width: 8em;
+          height: 5em;
+          background-color: lightgrey;
+      }
+
+      .project-title {
+          height: 2.6em;
+      }
+
+      /* FOOTER */
+
+      footer {
+          background-color: var(--bg-ter-color);
+          text-align: center;
+          padding: 2em;
+          color: var(--font-sec-color);
+      }
+
+      /* MEDIA QUERIES */
+
+      @media (max-width: 622px) {
+          #navbar {
+              justify-content: center;
+          }
+      }
+
+      @media (max-height: 300px) {
+          .welcome {
+              margin-top: 3.1em;
+              padding-top: 2em;
+              padding-bottom: 1em;
+          }
+      }
+
+        </style>
+        <script src=""></script>
+    </head>
+
+    <body>
+        <nav id="navbar">
+            <a href="#welcome-section">Welcome</a>
+            <a href="#projects">Projects</a>
+            <a href="#contacts">Contacts</a>
+        </nav>
+        <main>
+            <section id="welcome-section" class="welcome">
+                <h1>Hi! My name is Arthur.</h1> <br>
+                <p>I am a web developer.</p>
+                <p> This is my portfolio page.</p>
+            </section>
+            <section id="projects" class="projects">
+                <h2 class="work-header">These are some of my projects.</h2>
+
+                <a id="project-one" class="project-link project-tile" href="https://s.codepen.io/RealTheOne/debug/pGzzmb/bZAQWNmLonOM#features" target="_blank">
+                    <div class="project-box"></div>
+                    <div class="project-title">Landing page (project).</div>
+                </a>
+                <a id="project-two" class="project-link project-tile" href="https://s.codepen.io/RealTheOne/debug/YdJJZr/PNkvYGRBPxYA" target="_blank">
+                    <div class="project-box"></div>
+                    <div class="project-title">Harry Harrison tribute page.</div>
+                </a>
+                <a id="project-three" class="project-link project-tile" href="https://s.codepen.io/RealTheOne/debug/qLpjrP/WPALYNdPaDwk" target="_blank">
+                    <div class="project-box"></div>
+                    <div class="project-title">Landing page for a Game development course.</div>
+                </a>
+                <a id="project-four" class="project-link project-tile" href="https://s.codepen.io/RealTheOne/debug/rogQvR/XxkVwaXZREvM" target="_blank">
+                    <div class="project-box"></div>
+                    <div class="project-title">Generic form (project)</div>
+                </a>
+                <a id="project-five" class="project-link project-tile" href="https://s.codepen.io/RealTheOne/debug/xMwZJJ/VGkWNwzDmLdA" target="_blank">
+                    <div class="project-box"></div>
+                    <div class="project-title">Generic technical documentation page (project)</div>
+                </a>
+            </section>
+            <section id="contacts" class="contacts">
+                <h2 class="contacts-header">You may contact me in various ways</h2>
+                <a id="profile-link" class="contact-details  contacts-tile" href="https://github.com/RealTheOne" target="_blank">
+                    <div class="contact-box"></div>
+                    <div class="contacts-title">My GIThub profile</div>
+                </a>
+                <a class="contact-details  contacts-tile" href="#" target="_blank">
+                    <div class="contact-box"></div>
+                    <div class="contacts-title">Under cunstruction...</div>
+                </a>
+                <a class="contact-details  contacts-tile" href="#" target="_blank">
+                    <div class="contact-box"></div>
+                    <div class="contacts-title">Under cunstruction...</div>
+                </a>
+                <a class="contact-details contacts-tile" href="#" target="_blank">
+                    <div class="contact-box"></div>
+                    <div class="contacts-title">Under cunstruction...</div>
+                </a>
+                <a class="contact-details contacts-tile" href="#" target="_blank">
+                    <div class="contact-box"></div>
+                    <div class="contacts-title">Under cunstruction...</div>
+                </a>
+            </section>
+            <footer>
+                <p>This is a real portfolio. All the projects and contact details given are my real.</p>
+                <p>Copyright. 2019.</p>
+            </footer>
+      </main>
+    </body>
+</htm>
